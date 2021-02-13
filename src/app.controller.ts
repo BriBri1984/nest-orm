@@ -14,6 +14,6 @@ export class AppController {
 
   @Post("/task")
   createTask(@Req() request: Request){
-    console.log (request)
+    console.log (request.body.task)
   }
 }
