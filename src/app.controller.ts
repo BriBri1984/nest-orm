@@ -1,5 +1,6 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Render, Post, Req } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Request } from 'express'
 
 @Controller()
 export class AppController {
@@ -9,5 +10,10 @@ export class AppController {
   @Render('index')
   root() {
     return { message: 'Hello world!' };
+  }
+
+  @Post("/task")
+  createTask(@Req() request: Request){
+    console.log (request)
   }
 }
